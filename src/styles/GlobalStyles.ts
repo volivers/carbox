@@ -13,7 +13,7 @@ const useStyles = makeStyles(() =>
       '*, *::before, *::after': {
         boxSizing: 'inherit'
       },
-      '#root': {
+      '#root > main': {
         minHeight: '100vh',
         width: '100%',
         fontFamily: 'Open Sans, serif',

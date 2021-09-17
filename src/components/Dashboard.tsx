@@ -1,8 +1,13 @@
 import React from 'react';
+import NavBar from './common/NavBar';
+import Footer from './common/Footer';
 
 const Dashboard = () => {
   return (
-    <h1>Hello World</h1>
+    <main>
+      <NavBar />
+      <Footer />
+    </main>
   );
 }
 

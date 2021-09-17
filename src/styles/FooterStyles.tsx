@@ -44,7 +44,7 @@ export default makeStyles((theme) => ({
     textTransform: 'uppercase',
     letterSpacing: '0.5rem',
     textAlign: 'right',
-    marginRight: '3.5rem',
+    marginRight: '4rem',
   },
   textAccent: {
     textShadow: '0px 0px 5px #FFFFFF',

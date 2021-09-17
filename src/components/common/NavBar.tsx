@@ -10,9 +10,10 @@ const NavBar = () => {
     <nav className={classes.root}>
       <AppBar position="fixed" className={classes.appbar}>
         <Toolbar className={classes.toolbar}>
-          {/* <span className={classes.divider.left} /> */}
-          <h1 className={classes.title}>CARBO<sup>x</sup></h1>
-          <span className={classes.divider} />
+          <h1 className={`${classes.title} ${classes.textAccent}`}>
+            CARBO<sup>x</sup>
+          </h1>
+          <span className={`${classes.divider} ${classes.boxAccent}`} />
         </Toolbar>
       </AppBar>
     </nav>

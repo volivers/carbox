@@ -14,7 +14,7 @@ const useStyles = makeStyles(() =>
         boxSizing: 'inherit'
       },
       '#root > main': {
-        minHeight: '100vh',
+        minHeight: 'calc(100vh - 2.25rem)',
         width: '100%',
         fontFamily: 'Open Sans, serif',
         color: '#ffffff',

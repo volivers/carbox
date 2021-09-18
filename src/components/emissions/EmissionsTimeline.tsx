@@ -1,6 +1,6 @@
 import React from 'react';
 import BarChartIcon from '@material-ui/icons/BarChart';
-import useStyles from '../../styles/EstimatesTimelineStyles';
+import useStyles from '../../styles/EmissionsTimelineStyles';
 
 const EmissionsTimeline = () => {
   const classes = useStyles();

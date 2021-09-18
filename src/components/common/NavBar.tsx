@@ -5,7 +5,6 @@ import useStyles from '../../styles/NavBarStyles';
 
 const NavBar = () => {
   const classes = useStyles();
-
   return (
     <nav className={classes.root}>
       <AppBar position="fixed" className={classes.appbar}>

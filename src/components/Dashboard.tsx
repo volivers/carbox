@@ -3,7 +3,7 @@ import NavBar from './common/NavBar';
 import Footer from './common/Footer';
 import useStyles from '../styles/DashboardStyles';
 import ReadingsForm from './readings/ReadingsForm';
-import EstimatesTimeline from './estimates/EstimatesTimeline';
+import EmissionsTimeline from './emissions/EmissionsTimeline';
 
 const Dashboard = () => {
   const classes = useStyles();
@@ -12,7 +12,7 @@ const Dashboard = () => {
       <NavBar />
       <div className={classes.root}>
         <ReadingsForm />
-        <EstimatesTimeline />
+        <EmissionsTimeline />
       </div>
       <Footer />
     </main>

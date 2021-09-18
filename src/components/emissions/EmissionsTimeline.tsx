@@ -2,7 +2,7 @@ import React from 'react';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import useStyles from '../../styles/EstimatesTimelineStyles';
 
-const EstimatesTimeline = () => {
+const EmissionsTimeline = () => {
   const classes = useStyles();
   return (
     <section className={classes.root}>
@@ -15,4 +15,4 @@ const EstimatesTimeline = () => {
   );
 };
 
-export default EstimatesTimeline;
+export default EmissionsTimeline;

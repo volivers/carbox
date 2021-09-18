@@ -81,6 +81,11 @@ const ReadingsForm = () => {
             InputLabelProps={{
               className: classes.label
             }}
+            SelectProps={{
+              classes: {
+                icon: classes.chevron,
+              },
+            }}
           >
             {units.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -104,6 +109,11 @@ const ReadingsForm = () => {
           }}
           InputLabelProps={{
             className: classes.label
+          }}
+          SelectProps={{
+            classes: {
+              icon: classes.chevron,
+            },
           }}
         >
           {locations.map((option) => (

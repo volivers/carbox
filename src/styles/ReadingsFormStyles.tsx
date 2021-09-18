@@ -43,6 +43,9 @@ export default makeStyles((theme) => ({
   label: {
     color: theme.palette.secondary.light,
   },
+  chevron: {
+    fill: theme.palette.secondary.light,
+  },
   button: {
     backgroundColor: theme.palette.secondary.light,
     color: theme.palette.primary.dark,

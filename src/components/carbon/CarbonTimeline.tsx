@@ -1,8 +1,8 @@
 import React from 'react';
 import BarChartIcon from '@material-ui/icons/BarChart';
-import useStyles from '../../styles/EmissionsTimelineStyles';
+import useStyles from '../../styles/CarbonTimelineStyles';
 
-const EmissionsTimeline = () => {
+const CarbonTimeline = () => {
   const classes = useStyles();
   return (
     <section className={classes.root}>
@@ -15,4 +15,4 @@ const EmissionsTimeline = () => {
   );
 };
 
-export default EmissionsTimeline;
+export default CarbonTimeline;

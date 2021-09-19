@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const apiCall = (method: any, url: string, token: string, payload = {}) =>
+export const apiCall = (method: any, url: string, token: string | undefined, payload = {}) =>
   axios({
     method,
     data: payload,

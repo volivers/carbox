@@ -32,10 +32,6 @@ export default makeStyles((theme) => ({
     color: theme.palette.secondary.light,
     textAlign: 'right',
   },
-  formRow: {
-    display: 'flex',
-    justifyContent: 'space-between',
-  },
   input: {
     borderBottom: `1px solid ${theme.palette.secondary.light}`,
     color: theme.palette.secondary.light,

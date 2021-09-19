@@ -2,8 +2,8 @@ import React from 'react';
 import NavBar from './common/NavBar';
 import Footer from './common/Footer';
 import useStyles from '../styles/DashboardStyles';
-import ReadingsForm from './readings/ReadingsForm';
-import EmissionsTimeline from './emissions/EmissionsTimeline';
+import ElectricityForm from './electricity/ElectricityForm';
+import CarbonTimeline from './carbon/CarbonTimeline';
 
 const Dashboard = () => {
   const classes = useStyles();
@@ -11,8 +11,8 @@ const Dashboard = () => {
     <main>
       <NavBar />
       <div className={classes.root}>
-        <ReadingsForm />
-        <EmissionsTimeline />
+        <ElectricityForm />
+        <CarbonTimeline />
       </div>
       <Footer />
     </main>

@@ -25,8 +25,8 @@ const CarbonTimeline: React.FC<Props> = ({
 
   const options = {
     chart: {
-      foreColor: '#ccc',
-      height: 350,
+      foreColor: '#cccccc',
+      fontFamily: 'Open Sans',
       zoom: {
         enabled: true
       }
@@ -35,29 +35,34 @@ const CarbonTimeline: React.FC<Props> = ({
       enabled: false
     },
     stroke: {
-      width: 5,
-      // curve: 'smooth',
-      // dashArray: [0, 3, 3, 3]
+      width: 2,
+    },
+    marker: {
+      show: false,
+    },
+    tooltip: {
+      enabled: true,
+      theme: 'dark',
+      style: {
+        fontFamily: 'Open Sans',
+        fontWeight: 'normal',
+      }
     },
     title: {
       text: 'Daily Carbon Emissions (kg)',
-      // align: 'left'
+      style: {
+        fontFamily: 'Open Sans',
+        fontWeight: 'normal',
+      }
     },
-    // grid: {
-    //   row: {
-    //     colors: ['#f3f3f3', 'transparent'],
-    //     opacity: 0.5
-    //   },
-    // },
     xaxis: {
       categories: Object.keys(groups),
     },
-    // legend: {
-    //   show: true,
-    //   position: 'top',
-    // }
+    legend: {
+      fontFamily: 'Open Sans',
+      fontWeight: 'normal',
+    }
   };
-
 
   const flatten = (arr: any[]) => arr.reduce((a, b) => a.concat(b), []);
   console.log(attributes);
@@ -110,7 +115,7 @@ const CarbonTimeline: React.FC<Props> = ({
           <CircularProgress />
         </Box>
       }>
-        <ReactApexChart options={options} series={series} type="line" height={300} />
+        <ReactApexChart options={options} series={series} type="area" height={300} />
       </Suspense>
     </>
   );

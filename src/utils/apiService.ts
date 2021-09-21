@@ -21,9 +21,5 @@ export const postEstimate = (unit: string, usage: string | number, location: str
       "electricity_value": usage,
       "country": location,
     }
-  )
-    .then(response => {
-      console.log(response.data);
-    })
-    .catch((error) => alert(error));
+  );
 };

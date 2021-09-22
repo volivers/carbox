@@ -1,7 +1,6 @@
 import { apiCall } from './apiCall';
 
-// const apiKey = process.env.REACT_APP_API_KEY;
-const apiKey = 'bMCbcvG6WzaYp0M5hQCNg';
+const apiKey = process.env.REACT_APP_API_KEY;
 
 export const getEstimates = () => {
   return apiCall(

@@ -14,4 +14,4 @@ export interface CarbonEstimatesResponse {
       carbon_mt: number;
     }
   }
-};
+}

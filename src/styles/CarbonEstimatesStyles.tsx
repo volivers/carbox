@@ -28,6 +28,11 @@ export default makeStyles((theme) => ({
     marginTop: '1rem',
     marginRight: '0.5rem',
   },
+  empty: {
+    color: theme.palette.secondary.light,
+    textAlign: 'right',
+    marginTop: '5rem',
+  },
   textAccent: {
     textShadow: '0px 0px 5px #FFFFFF',
   },

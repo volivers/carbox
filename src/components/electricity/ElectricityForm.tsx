@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useStyles from '../../styles/ElectricityFormStyles';
 import { useInputState } from '../../hooks/useInputState';
 import { postEstimate } from '../../utils/apiService';
+import { getEstimates } from '../../utils/apiService';
 import { units } from '../../constants/units';
 import { locations } from '../../constants/locations';
 import BoltIcon from '@mui/icons-material/Bolt';
@@ -10,16 +11,37 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@material-ui/core/Button';
 import Hotkeys from 'react-hot-keys';
+import moment from 'moment';
 
-const ElectricityForm = () => {
+interface Props {
+  setEstimates: (prev: any) => void;
+}
+
+const ElectricityForm: React.FC<Props> = ({
+  setEstimates,
+}) => {
   const [usage, setUsage] = useState('');
   const [unit, handleUnitChange] = useInputState(units[0].value);
   const [location, handleLocationChange] = useInputState(locations[0].value);
   const classes = useStyles();
 
+  // const lastEstimateDuration = (endDate: { diff: (arg0: moment.Moment) => moment.DurationInputArg1; }) => {
+  //   const now = moment(new Date());
+  //   const duration = moment.duration(endDate.diff(now));
+  //   return duration.asHours();
+  // }
+
   const handleSubmit = (unit: string, usage: string, location: string) => {
-    postEstimate(unit, usage, location);
-    setUsage('');
+    postEstimate(unit, usage, location)
+      .then(response => {
+        console.log(response.data);
+        const item = Object.values(response.data);
+        console.log(item[0]);
+        // console.log(lastEstimateDuration(response.data.attributes.estimated_at));
+        setUsage('');
+        getEstimates().then((response) => setEstimates(response.data));
+      })
+      .catch((error) => alert(error));
   };
 
   return (
@@ -34,7 +56,7 @@ const ElectricityForm = () => {
         </h2>
         <form className={classes.form} onSubmit={() => handleSubmit(unit, usage, location)}>
           <small><p className={classes.timestamp}>Last reading:</p></small>
-          <Grid container justify="space-between">
+          <Grid container justifyContent="space-between">
             <TextField
               autoFocus
               type="number"

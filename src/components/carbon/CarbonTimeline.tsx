@@ -15,13 +15,20 @@ const CarbonTimeline: React.FC<Props> = ({
   estimates,
 }) => {
   const attributes = Object.values(estimates).map(e => e.data.attributes);
-  const days = (item: { estimated_at: string | number | Date; }) => (
+
+  const dailyFormat = (item: { estimated_at: string | number | Date; }) => (
     moment(new Date(item.estimated_at), 'YYYY-MM-DD').format('DD-MMM')
   );
-  const groups = _(attributes)
-    .groupBy(days)
-    // .mapValues(items => _.map(items, 'country'))
+  const groupsByDay = _(attributes)
+    .groupBy(dailyFormat)
     .value()
+
+  const flatten = (arr: any[]) => arr.reduce((a, b) => a.concat(b), []);
+  const filterByLocation = (location: string) => (
+    Object.values(groupsByDay).map(item => (
+      item.filter(i => i.country === location && i)
+    ))
+  );
 
   const options = {
     chart: {
@@ -56,7 +63,7 @@ const CarbonTimeline: React.FC<Props> = ({
       }
     },
     xaxis: {
-      categories: Object.keys(groups),
+      categories: attributes.map(i => dailyFormat(i)),
     },
     legend: {
       fontFamily: 'Open Sans',
@@ -64,49 +71,15 @@ const CarbonTimeline: React.FC<Props> = ({
     }
   };
 
-  const flatten = (arr: any[]) => arr.reduce((a, b) => a.concat(b), []);
-  console.log(attributes);
-  console.log(Object.values(groups).map(item => item.map(i => i.electricity_value)));
-
-  const filterByLocation = (location: any) => (
-    Object.values(groups).map(item => item.filter(i => (
-      i.country === location
-    )))
-  );
-
-
-  // const highCount = (month) => {
-  //   const high = [];
-  //   month.map(item => {
-  //     if (item === 'High') { high.push(item) };
-  //     return item;
-  //   });
-  //   return high.length;
-  // };
-
-  // const mediumCount = (month) => {
-  //   const medium = [];
-  //   month.map(item => {
-  //     if (item === 'Medium') { medium.push(item) };
-  //     return item;
-  //   });
-  //   return medium.length;
-  // };
-
-  // const lowCount = (month) => {
-  //   const low = [];
-  //   month.map(item => {
-  //     if (item === 'Low') { low.push(item) };
-  //     return item;
-  //   });
-  //   return low.length;
-  // };
-
-  const series = locations.map((option: { label: any; value: any; }) => (
-    { name: option.label, data: flatten(filterByLocation(option.value)).map((i: { electricity_value: any; }) => i.electricity_value) }
+  const series = locations.map((option: { label: string; value: string; }) => (
+    {
+      name: option.label,
+      data:
+        flatten(
+          filterByLocation(option.value)
+        ).map((i: { carbon_kg: number; }) => i.carbon_kg)
+    }
   ));
-
-  console.log(series)
 
   return (
     <>

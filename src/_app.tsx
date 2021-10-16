@@ -3,6 +3,8 @@ import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
 import GlobalStyles from './styles/GlobalStyles';
 import Dashboard from './components/Dashboard';
 
+require('dotenv').config();
+
 const theme = createTheme({
   palette: {
     primary: {

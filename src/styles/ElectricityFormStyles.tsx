@@ -33,18 +33,18 @@ export default makeStyles((theme) => ({
     textAlign: 'right',
   },
   input: {
-    borderBottom: `1px solid ${theme.palette.secondary.light}`,
-    color: theme.palette.secondary.light,
+    borderBottom: `1px solid ${theme.palette.secondary.light} !important`,
+    color: `${theme.palette.secondary.light} !important`,
   },
   label: {
-    color: theme.palette.secondary.light,
+    color: `${theme.palette.secondary.light} !important`,
   },
   chevron: {
-    fill: theme.palette.secondary.light,
+    fill: `${theme.palette.secondary.light} !important`,
   },
   button: {
-    backgroundColor: theme.palette.secondary.light,
-    color: theme.palette.primary.dark,
+    backgroundColor: `${theme.palette.secondary.light} !important`,
+    color: `${theme.palette.primary.dark} !important`,
     opacity: 0.8,
     boxShadow:
       `0 0 5px #fff, 0 0 5px #fff,

@@ -45,29 +45,28 @@ export default makeStyles((theme) => ({
   button: {
     backgroundColor: `${theme.palette.secondary.light} !important`,
     color: `${theme.palette.primary.dark} !important`,
-    opacity: 0.8,
+    opacity: `${0.8} !important`,
     boxShadow:
       `0 0 5px #fff, 0 0 5px #fff,
       0 0 15px #0073e6, 0 0 10px #0073e6,
       0 0 25px #0073e6, 0 0 15px #0073e6,
-      0 0 35px #0073e6`,
-    transition: 'opacity .3s ease-in',
+      0 0 35px #0073e6 !important`,
+    transition: 'opacity .3s ease-in !important',
     "&:disabled": {
-      color: theme.palette.secondary.light,
-      opacity: 0.4,
+      opacity: `${0.4} !important`,
       boxShadow:
         `0 0 5px #fff, 0 0 5px #fff,
         0 0 15px #0073e6, 0 0 10px #0073e6,
         0 0 25px #0073e6, 0 0 15px #0073e6,
-        0 0 35px #0073e6`,
+        0 0 35px #0073e6 !important`,
     },
     "&:hover": {
-      opacity: 1,
+      opacity: `${1} !important`,
       boxShadow:
         `0 0 5px #fff, 0 0 5px #fff,
         0 0 15px #0073e6, 0 0 10px #0073e6,
         0 0 25px #0073e6, 0 0 15px #0073e6,
-        0 0 35px #0073e6`,
+        0 0 35px #0073e6 !important`,
     }
   },
   textAccent: {

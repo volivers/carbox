@@ -34,7 +34,7 @@ To run the server and/or client sides separately, you can also use:
 It will open [http://localhost:3000](http://localhost:3000) (default),
 so you can view the project in the browser.
 
-### Demo
+## Demo
 
 <!-- ![Demo](./demo.gif) -->
 
@@ -94,11 +94,11 @@ arranged according to the their features under `/carbon` and `electricity`.
 
 #### `/utils` and `/types`
 
-It contains all the functions and types used to fetch data from the [Carbon Interface API](https://www.carboninterface.com/).
+These folders contain all the functions and types used to fetch data from the [Carbon Interface API](https://www.carboninterface.com/).
 
 #### `/hooks` and `/constants`
 
-It includes the customized hooks, constants and types used to build this project.
+These folders include the customized hooks, constants and types used to build this project.
 
 #### `/styles`
 

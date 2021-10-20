@@ -1,46 +1,117 @@
-# Getting Started with Create React App
+# CarboX
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Carbon emissions tracker built with React, NodeJS and [Carbon Interface API](https://www.carboninterface.com/), using [Material-UI](https://material-ui.com/) and [ApexCharts](https://apexcharts.com/) to power the user experience and data visualization.
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+CarboX is a single interface app that allows the user to collect electricity usage by location,
+and estimates its carbon emissions over time.
 
-### `yarn start`
+It was created upon 2 main features: the Electricity Form and the Carbon Timeline.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Live version
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The live version is available at: <https://carbox.netlify.app/>
 
-### `yarn test`
+## Install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project was created using [CRA](https://github.com/facebook/create-react-app).
+To run the code, first install all the dependencies needed with:
 
-### `yarn build`
+`npm install`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+After the installation, create a `.env` file with your [Carbon Interface API](https://www.carboninterface.com/)
+key, following the example provided in the `.env.sample`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Then, you will be able to start the project executing the command:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`npm start`
 
-### `yarn eject`
+To run the server and/or client sides separately, you can also use:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`npm start:server` and/or `npm start:app`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+It will open [http://localhost:3000](http://localhost:3000) (default),
+so you can view the project in the browser.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Demo
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<!-- ![Demo](./demo.gif) -->
 
-## Learn More
+## Architecture
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The project was architectured in the following way:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### `/server`
+
+The `/server` includes the server-side codebase. A basic `server.ts` was created with [Express](https://expressjs.com/), so that the project can be scaled up at some point.
+
+### `/src`
+
+The `/src` contains all the client-side codebase.
+
+```
+.
+├── components
+│   ├── carbon
+│   │   ├── CarbonEstimates.tsx
+│   │   └── CarbonTimeline.tsx
+│   ├── common
+│   │   ├── Footer.tsx
+│   │   └── NavBar.tsx
+│   ├── electricity
+│   │   └── ElectricityForm.tsx
+│   └── Dashboard.tsx
+├── constants
+│   ├── locations.ts
+│   └── units.ts
+├── hooks
+│   └── useInputState.tsx
+├── styles
+│   ├── CarbonEstimatesStyles.tsx
+│   ├── DashboardStyles.tsx
+│   ├── ElectricityFormStyles.tsx
+│   ├── FooterStyles.tsx
+│   ├── GlobalStyles.tsx
+│   └── NavBarStyles.tsx
+├── types
+│   └── responseTypes.ts
+├── utils
+│   ├── apiCall.ts
+│   ├── apiService.ts
+│   └── domains.ts
+├── _app.tsx
+└── index.tsx
+
+```
+
+#### `/components`
+
+This folder includes all the components used to build the project, dumb and smart ones.
+
+While the dumb components used were clustered at the `/common` folder, smart components were
+arranged according to the their features under `/carbon` and `electricity`.
+
+#### `/utils` and `/types`
+
+It contains all the functions and types used to fetch data from the [Carbon Interface API](https://www.carboninterface.com/).
+
+#### `/hooks` and `/constants`
+
+It includes the customized hooks, constants and types used to build this project.
+
+#### `/styles`
+
+Since the components were styled using [Material-UI](https://material-ui.com/)’s styling solution and best practises,
+their files were clustered here. This way, the components’ logic and styles are cleanly separate.
+
+## Contributing
+
+Pull requests are welcome. For major changes, open an issue first to discuss what you would like to change.
+Please make sure to include or update tests as appropriate.
+
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Copyright © 2021 Vasco Oliveira

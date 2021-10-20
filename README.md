@@ -34,10 +34,6 @@ To run the server and/or client sides separately, you can also use:
 It will open [http://localhost:3000](http://localhost:3000) (default),
 so you can view the project in the browser.
 
-## Demo
-
-<!-- ![Demo](./demo.gif) -->
-
 ## Architecture
 
 The project was architectured in the following way:
@@ -90,7 +86,7 @@ The `/src` contains all the client-side codebase.
 This folder includes all the components used to build the project, dumb and smart ones.
 
 While the dumb components used were clustered at the `/common` folder, smart components were
-arranged according to the their features under `/carbon` and `electricity`.
+arranged according to their features under `/carbon` and `electricity`.
 
 #### `/utils` and `/types`
 
@@ -98,7 +94,7 @@ These folders contain all the functions and types used to fetch data from the [C
 
 #### `/hooks` and `/constants`
 
-These folders include the customized hooks, constants and types used to build this project.
+These folders include the customized hooks and constants used to build this project.
 
 #### `/styles`
 

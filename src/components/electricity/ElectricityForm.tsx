@@ -11,7 +11,7 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@material-ui/core/Button';
 import Hotkeys from 'react-hot-keys';
-// import moment from 'moment';
+import moment from 'moment';
 
 interface Props {
   setEstimates: (prev: any) => void;
@@ -25,19 +25,10 @@ const ElectricityForm: React.FC<Props> = ({
   const [location, handleLocationChange] = useInputState(locations[0].value);
   const classes = useStyles();
 
-  // const lastEstimateDuration = (endDate: { diff: (arg0: moment.Moment) => moment.DurationInputArg1; }) => {
-  //   const now = moment(new Date());
-  //   const duration = moment.duration(endDate.diff(now));
-  //   return duration.asHours();
-  // }
-
   const handleSubmit = (unit: string, usage: string, location: string) => {
     postEstimate(unit, usage, location)
       .then(response => {
         console.log(response.data);
-        const item = Object.values(response.data);
-        console.log(item[0]);
-        // console.log(lastEstimateDuration(response.data.attributes.estimated_at));
         setUsage('');
         getEstimates().then((response) => setEstimates(response.data));
       })
@@ -55,7 +46,11 @@ const ElectricityForm: React.FC<Props> = ({
           Electricity Readings
         </h2>
         <form className={classes.form} onSubmit={() => handleSubmit(unit, usage, location)}>
-          <small><p className={classes.timestamp}>Last reading:</p></small>
+          <small>
+            <p className={classes.timestamp}>
+              Date: {moment().format('DD-MMM, hh:mm A')}
+            </p>
+          </small>
           <Grid container justifyContent="space-between">
             <TextField
               autoFocus

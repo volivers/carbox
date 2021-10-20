@@ -63,7 +63,7 @@ const CarbonTimeline: React.FC<Props> = ({
       }
     },
     xaxis: {
-      categories: attributes.map(i => dailyFormat(i)),
+      categories: _.uniq(attributes.map(i => dailyFormat(i))),
     },
     legend: {
       fontFamily: 'Open Sans',
